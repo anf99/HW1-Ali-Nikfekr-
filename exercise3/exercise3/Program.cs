@@ -8,6 +8,25 @@ namespace exercise3
 {
     class Program
     {
+        static string D()
+        {
+            DateTime ta = DateTime.Today;
+            return Convert.ToString(ta.Date);
+        }
+        string M()
+        {
+            int[] num = new int[10];
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine("number {0} : ", i + 1);
+                num[i] = int.Parse(Console.ReadLine());
+            }
+            int max = num[0];
+            for (int i = 1; i < 10; i++)
+                if (num[i] > max)
+                    max = num[i];
+            return Convert.ToString(max);
+        }
         static void Main(string[] args)
         {
             int n;
@@ -20,8 +39,7 @@ namespace exercise3
                 switch(n)
                 {
                     case 1:
-                        DateTime ta = DateTime.Today;
-                        Console.WriteLine(ta.Date);
+                        Console.WriteLine(Program.D());
                         Console.WriteLine("press 1 to see date");
                         Console.WriteLine("press 2 to enter 10 number");
                         Console.WriteLine("press 0 to exit");
@@ -29,18 +47,8 @@ namespace exercise3
                         Console.Clear();
                         break;
                     case 2:
-                        int[] num = new int[10];
-                        for (int i = 0; i < 10; i++)
-                        {
-                            Console.WriteLine("number {0} : ", i + 1);
-                            num[i] = int.Parse(Console.ReadLine());
-                        }
-                        int max = num[0];
-                        for (int i = 1; i < 10; i++)
-                            if (num[i] > max)
-                                max = num[i];
-
-                        Console.WriteLine("max is : " + max);
+                        Program m1 = new Program();
+                        Console.WriteLine("max is : " + m1.M());
                         Console.WriteLine("press 1 to see date");
                         Console.WriteLine("press 2 to enter 10 number");
                         Console.WriteLine("press 0 to exit");
